@@ -1,0 +1,26 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.datasets import load_iris
+
+iris = load_iris()
+
+x = iris.data
+y = iris.target
+
+print("Conversion Chart")
+print(pd.DataFrame({
+    "Flower": iris.target_names,
+    "Value": [0,1,2]
+}))
+
+plt.figure(figsize=(10,5))
+
+plt.subplot(1,2,1)
+plt.scatter(x[:,0], x[:,1], c=y)
+plt.title("Sepal Plot")
+
+plt.subplot(1,2,2)
+plt.scatter(x[:,2], x[:,3], c=y)
+plt.title("Petal Plot")
+
+plt.show()
